@@ -104,3 +104,12 @@ for i in range(1, len(asztalosok)):
         maxi = i
 print(f'a legjobban keresző asztalos: {asztalosok[maxi].nev}')
 
+# szétválogatás
+reszleg_per_fo:dict[str, int] = {}
+for d in dolgozok:
+    if d.reszleg not in reszleg_per_fo.keys():
+        reszleg_per_fo[d.reszleg] = 1
+    else: reszleg_per_fo[d.reszleg] += 1
+print('melyik részlegen hány fő dolgozik:')
+for reszleg, dolgozoszam in reszleg_per_fo.items():
+    print(f'\t- {reszleg}: {dolgozoszam} fő')
